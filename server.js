@@ -14,7 +14,7 @@ const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
 
 const routes = require('./public/routes/index.js');
-const user = require('./public/routes/user.js');
+const user = require('./public/routes/users.js');
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(flash());
 
