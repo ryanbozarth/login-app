@@ -4,6 +4,6 @@ deploy:
   provider: heroku
   api_key:
       secure: d0fef4e4-e279-4b8c-824c-e327f1133fd6
-  app: login-app
+  app: node-login-app
   on:
-    repo: ryanbozarth/node-login-app
+    repo: ryanbozarth/login-app
