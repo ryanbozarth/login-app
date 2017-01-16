@@ -6,4 +6,4 @@ deploy:
       secure: d0fef4e4-e279-4b8c-824c-e327f1133fd6
   app: login-app
   on:
-    repo: ryanbozarth/login-app
+    repo: ryanbozarth/node-login-app
