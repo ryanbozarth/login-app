@@ -1,7 +1,6 @@
 
 const express = require('express');
 const path = require('path');
-const app = express();
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
@@ -11,8 +10,18 @@ const passport = require('passport');
 const session = require('express-session')
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
+const handlebars = require('handlebars');
+const exphbs = require('express-handlebars');
 
-const User = require('./public/models/user.js');
+const routes = require('./public/routes/index.js');
+const user = require('./public/routes/user.js');
+
+const app = express();
+
+//View Engine
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -55,6 +64,9 @@ app.use(function(req, res , next) {
   res.locals.error = req.flash('error');
   next();
 });
+
+app.use('/', routes);
+app.use('/users', user);
 
 // Set database port
 const DATABASE_URL = process.env.DATABASE_URL ||
@@ -108,11 +120,7 @@ if (require.main === module) {
 
 app.get('/', (req, res) => {
   res.status(200);
-  res.sendFile(__dirname + '/build/index.html');
+  res.sendFile(__dirname + '/pubic/index.html');
 });
-
-
-
-
 
 exports.app = app;
