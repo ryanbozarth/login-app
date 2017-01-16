@@ -12,11 +12,13 @@ const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const handlebars = require('handlebars');
 const exphbs = require('express-handlebars');
+const LocalStrategy = require('passport-local').Strategy;
 
 const routes = require('./public/routes/index.js');
 const user = require('./public/routes/users.js');
 
 const app = express();
+const db = mongoose.connection;
 
 //View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -59,7 +61,7 @@ app.use(expressValidator({
 }));
 
 // Flash messages
-app.use(function(req, res , next) {
+app.use(function(req, res, next) {
   res.locals.sucess_msg = req.flash('sucess_msg');
   res.locals.erro_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
