@@ -65,6 +65,7 @@ app.use(function(req, res, next) {
   res.locals.sucess_msg = req.flash('sucess_msg');
   res.locals.erro_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
   next();
 });
 
