@@ -18,10 +18,15 @@ body {
   border-bottom: 1px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
+.header h2 {
+  font-weight: 300;
+}
+
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
+  font-weight: 300;
 }
 
 
