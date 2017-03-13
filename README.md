@@ -9,6 +9,10 @@ This app provides you the ability to register a new user, login as an authentica
 
 Trust, but verify.
 
+![Register View](assets/register-login-app-screenshot.png)
+
+![Login View](assets/login-app-screenshot.png)
+
 ## Documentation
 
 If you would like to try running it yourself:
