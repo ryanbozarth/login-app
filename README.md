@@ -27,3 +27,4 @@ $ node server.js
 - Bcrypt
 - Passport
 - Handlebars
+- Travis
